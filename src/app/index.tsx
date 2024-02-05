@@ -10,7 +10,7 @@ SplashScreen.preventAutoHideAsync();
 
 const days = [...Array(24)].map((val, index) => index + 1);
 
-export default function App() {
+export default function HomeScreen() {
   const [fontsLoaded, fontError] = useFonts({
     Inter: Inter_900Black,
     Amatic: AmaticSC_400Regular,
@@ -34,7 +34,7 @@ export default function App() {
         contentContainerStyle={styles.content}
         columnWrapperStyle={styles.column}
         numColumns={2}
-        renderItem={({ item }) => <DayListItem item={item} />}
+        renderItem={({ item }) => <DayListItem day={item} />}
       />
 
       <StatusBar style="auto" />

@@ -24,20 +24,7 @@
         "NSMicrophoneUsageDescription": "$(PRODUCT_NAME) needs access to your Microphone."
       }
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "permissions": [
-        "android.permission.USE_BIOMETRIC",
-        "android.permission.USE_FINGERPRINT",
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO"
-      ],
-      "package": "com.vadinsavin.DEVember",
-      "googleServicesFile": "./google-services.json"
-    },
+    
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
@@ -60,7 +47,8 @@
       "url": "https://u.expo.dev/ee991416-c2d4-425a-affe-4ea58d9aa6c0"
     },
     "plugins": [
-      "expo-font"
+      "expo-font",
+      "expo-router"
     ]
   }
 }

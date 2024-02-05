@@ -1,15 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { Link } from 'expo-router';
 
 interface DayListItemProps {
-  item: any;
+  day: any;
 }
 
-const DayListItem: React.FC<DayListItemProps> = ({ item }) => {
+const DayListItem: React.FC<DayListItemProps> = ({ day }) => {
   return (
-    <View style={styles.box}>
-      <Text style={styles.text}>{item}</Text>
-    </View>
+    <Link href={`/day${day}`} asChild>
+      <Pressable style={styles.box}>
+        <Text style={styles.text}>{day}</Text>
+      </Pressable>
+    </Link>
   );
 };
 
