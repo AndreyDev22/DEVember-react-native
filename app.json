@@ -12,7 +12,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.vadinsavin.DEVember",
@@ -40,7 +42,6 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    
     "experiments": {
       "tsconfigPaths": true
     },
@@ -57,6 +58,9 @@
     },
     "updates": {
       "url": "https://u.expo.dev/ee991416-c2d4-425a-affe-4ea58d9aa6c0"
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
