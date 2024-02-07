@@ -1,3 +1,4 @@
+import AnimatedSplashScreen from '@/components/day4/AnimatedSplashScreen';
 import { AmaticSC_400Regular, AmaticSC_700Bold } from '@expo-google-fonts/amatic-sc';
 import {
   Inter_400Regular,
@@ -8,12 +9,15 @@ import {
 } from '@expo-google-fonts/inter';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  const [appReady, setAppReady] = useState(false);
+  const [splashAnimatedFinish, setSplashAnimatedFinish] = useState(false);
+
   const [fontsLoaded, fontError] = useFonts({
     Inter900: Inter_900Black,
     Inter600: Inter_600SemiBold,
@@ -25,12 +29,21 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (fontsLoaded || fontError) {
-      SplashScreen.hideAsync();
+      // SplashScreen.hideAsync();
+      setAppReady(true);
     }
   }, [fontsLoaded, fontError]);
 
-  if (!fontsLoaded && !fontError) {
-    return null;
+  if (!appReady || !splashAnimatedFinish) {
+    return (
+      <AnimatedSplashScreen
+        onAnimationFinish={(isCancelled) => {
+          if (!isCancelled) {
+            setSplashAnimatedFinish(true);
+          }
+        }}
+      />
+    );
   }
 
   return (
